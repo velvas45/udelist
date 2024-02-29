@@ -6,9 +6,9 @@ export async function generateMetadata({ params, searchParams }, parent) {
   const id = params.id;
 
   // fetch data
-  const product = await fetch(`http://localhost:3000/api/products/${id}`).then(
-    (res) => res.json()
-  );
+  const product = await fetch(
+    `${process.env.NEXT_PUBLIC_API_URL}/api/products/${id}`
+  ).then((res) => res.json());
 
   return {
     title: `Udelist - Class ${product.data.product.title}`,
@@ -19,9 +19,12 @@ export async function generateMetadata({ params, searchParams }, parent) {
 
 const Page = async ({ params }) => {
   const id = params.id;
-  const res = await fetch(`https://udelist.vercel.app/api/products/${id}`, {
-    cache: "no-store",
-  });
+  const res = await fetch(
+    `${process.env.NEXT_PUBLIC_API_URL}/api/products/${id}`,
+    {
+      cache: "no-store",
+    }
+  );
   const data = await res.json();
   return (
     <div className="grid">

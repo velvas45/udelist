@@ -3,7 +3,6 @@ import { NextResponse } from "next/server";
 
 export async function GET(request, context) {
   const id = context?.params?.id || undefined;
-  console.log(id);
   if (!id) {
     return NextResponse.json({
       data: {

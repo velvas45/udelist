@@ -13,7 +13,9 @@ export default async function Home({ _, searchParams }) {
   const rating = searchParams?.rating || 0;
 
   const res = await fetch(
-    `https://udelist.vercel.app/api/products?page=${page}&price=${price}${
+    `${
+      process.env.NEXT_PUBLIC_API_URL
+    }/api/products?page=${page}&price=${price}${
       rating ? `&rating=${rating}` : ""
     }`,
     {
