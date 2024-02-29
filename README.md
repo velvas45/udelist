@@ -36,4 +36,4 @@ Start the server
 
 ## Demo
 
-Insert gif or link to demo
+https://udelist.vercel.app/
